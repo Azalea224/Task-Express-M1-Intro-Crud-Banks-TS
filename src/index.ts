@@ -2,6 +2,7 @@ import express from "express";
 import accounts from "../accounts";
 import type { Request, Response } from "express";
 const app = express();
+app.use(express.json());
 app.get("/accounts", (req: Request, res: Response) => {
   res.status(200).json(accounts);
 });
@@ -18,7 +19,7 @@ app.delete("/accounts/:accountID", (req: Request, res: Response) => {
   const index = accounts.findIndex((acc) => acc.id === parseInt(accountID));
   if (index !== -1) {
     accounts.splice(index, 1);
-    res.status(204).send();
+    res.status(204).json(accounts);
   } else {
     res.status(404).json({ error: "Account not found" });
   }
