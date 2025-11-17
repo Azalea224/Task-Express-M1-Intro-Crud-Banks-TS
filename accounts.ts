@@ -1,4 +1,4 @@
-export const accounts = [
+const accounts = [
   {
     id: 1,
     username: "Omar",
@@ -15,3 +15,5 @@ export const accounts = [
     funds: 100,
   },
 ];
+
+export default accounts;
